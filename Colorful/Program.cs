@@ -1,24 +1,19 @@
 ﻿using System.Drawing;
 using static Colorful.Console;
-
 namespace Colorful
 {
     internal class Program
     {
         static void Main()
         {
-            ResetColor();
-            ForegroundColor = Color.Blue;
-            WriteLine("Hello, World!");
-            WriteLine("Hello, World!");
-            ResetColor();
-            Write("{/Blink}{/Fore(255,0,0)}he{/}{/} {/Fore(0,25,255)}hi{/} {/Faint}hello{/} {/Bold}sup{/} {/Back(2,34,134)}non{/}");
-            ResetColor();
-            WriteLine("\nHello, World!");
-            WriteLine("Hello, World!");
-            WriteLine("Hello, World!");
-            WriteLine("Hello, World!");
-            Write(ConsoleColor.Red, ColoringType.Pixel);
+            ForegroundColor = Color.FromArgb(0, 255, 255);
+            Write(AnsiCodes["Underline"]);
+            WriteLine("Yes");
+            BackgroundColor = Color.FromArgb(255, 0, 255);
+            Write(AnsiCodes["DoubleUnderline"]);
+            WriteLine("No");
+            Write(AnsiCodes["ResetUnderlineAll"]);
+            WriteLine("Yes");
             //WriteLine(ConsoleColor.Red, "yes");
             //Write(Color.Green, "ff");
             //WriteLine(Color.Cyan, "aw");
