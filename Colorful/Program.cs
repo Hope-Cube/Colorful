@@ -14,7 +14,7 @@ namespace Colorful
             WriteLine("No");
             Write(AnsiCodes["ResetUnderlineAll"]);
             WriteLine("Yes");
-            //WriteLine(ConsoleColor.Red, "yes");
+            WriteLine(ConsoleColor.Red, "yes");
             //Write(Color.Green, "ff");
             //WriteLine(Color.Cyan, "aw");
             //Console.WriteLine(ConsoleColor.Blue, "no");

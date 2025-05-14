@@ -72,6 +72,78 @@ namespace Colorful
         }
         #endregion
 
+        #region Styling stuff
+        public static void Write(string text, Color color, short type)
+        {
+            switch (type)
+                { 
+                case 0:
+                    ForegroundColor = color;
+                    break;
+                case 1:
+                    BackgroundColor = color;
+                    break;
+                case 2:
+                    ForegroundColor = color;
+                    BackgroundColor = color;
+                    break;
+            }
+            Write(text);
+            ResetColors();
+        }
+        public static void WriteLine(string text, Color color, PixelType type)
+        {
+            Write(text, color, type);
+            WriteLine();
+        }
+
+        public static void Write(string text, Color color)
+        {
+            ForegroundColor = color;
+            Write(text);
+            ResetColors();
+        }
+        public static void WriteLine(string text, Color color)
+        {
+            ForegroundColor = color;
+            Write(text, color);
+            WriteLine();
+        }
+
+        public static void Write(string text, ConsoleColor color)
+        {
+            Write(text, ColorMap[color]);
+        }
+        public static void WriteLine(string text, ConsoleColor color)
+        {
+            WriteLine(text, ColorMap[color]);
+        }
+
+        public static void Write(string text, ConsoleColor color, PixelType type)
+        {
+            switch (type)
+            {
+                case PixelType.Small:
+                    ForegroundColor = ColorMap[color];
+                    break;
+                case PixelType.Big:
+                    BackgroundColor = ColorMap[color];
+                    break;
+                case PixelType.Solid:
+                    ForegroundColor = ColorMap[color];
+                    BackgroundColor = ColorMap[color];
+                    break;
+            }
+            Write(text);
+            ResetColors();
+        }
+        public static void WriteLine(string text, ConsoleColor color, PixelType type)
+        {
+            Write(text, color, type);
+            WriteLine();
+        }
+        #endregion
+
         #region Wrapper
         // --- Properties ---
         private static Color _foregroundColor;
